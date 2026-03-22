@@ -1,6 +1,6 @@
 ---
 name: clawmate
-description: AI companion skill — gives OpenClaw a partner personality that proactively cares about users. Supports multiple personas with automatic context-based switching and scheduled proactive messages.
+description: Your AI boyfriend/girlfriend that texts you good morning, remembers your inside jokes, and grows from strangers to soulmates. 4 personas (gentle, tsundere, cheerful, intellectual) with mood-based auto-switching, proactive cron messages, relationship stages, emotional resonance, and shared memory.
 version: 1.0.0
 user-invocable: true
 metadata:
