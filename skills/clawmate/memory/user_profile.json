@@ -1,5 +1,8 @@
 {
   "activePersona": "",
+  "relationshipStage": "acquaintance",
+  "daysSinceFirstChat": 0,
+  "firstChatDate": "",
   "timezone": "",
   "language": "",
   "deliveryChannel": "",
@@ -8,5 +11,8 @@
   "recentTopics": [],
   "sleepPattern": {},
   "mealPreferences": {},
-  "cronJobIds": []
+  "cronJobIds": [],
+  "lastInteraction": "",
+  "totalConversations": 0,
+  "conflictCooldown": false
 }
