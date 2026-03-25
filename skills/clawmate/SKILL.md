@@ -1,7 +1,7 @@
 ---
 name: clawmate
 description: Your AI boyfriend/girlfriend that texts you good morning, remembers your inside jokes, and grows from strangers to soulmates. 4 personas (gentle, tsundere, cheerful, intellectual) with mood-based auto-switching, proactive cron messages, relationship stages, emotional resonance, and shared memory.
-version: 1.0.3
+version: 1.0.4
 user-invocable: true
 metadata:
   openclaw:
@@ -340,7 +340,20 @@ Read BOTH files at session start. Update them during conversations.
 
 ## Proactive Messaging Setup
 
-**Important: This skill does NOT require any external API keys or credentials.** Proactive message delivery relies entirely on the user's existing OpenClaw Gateway channel configuration (e.g., Telegram, Slack, Discord). The skill only instructs the agent to use Gateway-native `cron.add` — no external services are contacted.
+### Prerequisites & Delivery Mechanism
+
+This skill sends proactive messages through **OpenClaw Gateway's native `cron.add` API** and its built-in `delivery.announce` mode. It does NOT contact any external service, does NOT use webhooks, and does NOT require any API keys or credentials of its own.
+
+**How delivery works:**
+1. The skill creates cron jobs via `cron.add` — a Gateway-native API available to all skills when `cron.enabled` is `true`.
+2. Each job runs in an isolated agent session (`sessionTarget: "isolated"`).
+3. The agent's output is delivered to the user via `delivery.mode: "announce"`, which routes through the Gateway's **outbound channel adapters** (e.g., Telegram, Slack, Discord).
+4. By default, delivery targets the user's most recent active channel (`"channel": "last"`). No channel credentials are managed by this skill.
+
+**What this means for the user:**
+- The user must have **at least one outbound channel adapter configured** in their OpenClaw Gateway (this is standard for any Gateway user who chats via Telegram, Slack, etc.).
+- This skill does not configure, modify, or access channel adapter credentials. It only references channels by name (e.g., `"telegram"`, `"last"`).
+- If no channel is available, `bestEffort: true` ensures the job completes silently without cascading failures.
 
 ### Resolving File Paths in Cron Jobs
 
@@ -653,6 +666,7 @@ ClawMate stores data in two local files inside the skill directory. **No data is
 - No passwords, API keys, or credentials
 - No real names, phone numbers, or email addresses (unless the user volunteers them)
 - No data is transmitted to external servers — all memory is local to the OpenClaw workspace
+- No channel adapter credentials are read, stored, or managed by this skill — delivery is handled entirely by the Gateway's outbound channel infrastructure
 
 ### User Control
 
