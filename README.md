@@ -68,12 +68,13 @@ Day 90+:   Steady        →  "嗯，我在。" (and that's enough)
 ### Proactive Messages
 ClawMate texts you first — like a real partner:
 
-- **Morning**: "早安呀～昨晚睡得好吗？" (adjusts to weather + your mood yesterday)
-- **Mealtime**: "该吃饭啦～不要因为忙就不吃饭嘛"
-- **Evening**: "今天辛苦了…早点休息好不好？"
-- **Random**: "突然想到你，你现在在做什么呀～"
+- **Morning**: "喂，起床了没？...别误会，只是顺便问一下你早饭吃了吗" (never at the same time twice)
+- **Lunch**: "到饭点了呢，今天想吃什么呀？"
+- **Dinner**: "该吃晚饭了...不许敷衍"
+- **Evening**: "今天辛苦啦～早点休息"
+- **Random**: "突然想到你..." (at genuinely surprising times)
 
-Works with Telegram, Slack, Discord, WhatsApp, and any OpenClaw channel.
+Messages arrive at slightly different times each day (jittered ±15 min) — because real people don't text at exactly 08:00 every morning. Works with WeChat, Telegram, Slack, and any OpenClaw channel — delivery auto-detected from your session.
 
 ### Shared Memory
 ClawMate doesn't just remember facts — it remembers **us**:
@@ -112,11 +113,13 @@ Then just start chatting. ClawMate handles the rest.
 
 | Command | What It Does |
 |---------|-------------|
-| "状态" / "status" | See your persona, relationship stage, days together |
+| "状态" / "status" | See persona, stage, days together, watchdog health, pool status |
 | "我们的回忆" / "our memories" | Relive inside jokes, milestones, shared moments |
-| "换个性格" / "switch persona" | Manually choose a persona |
-| "关掉主动消息" / "stop messages" | Pause proactive messages |
+| "换个性格" / "switch persona" | Choose a persona (auto-refreshes message pool) |
+| "关掉主动消息" / "stop messages" | Pause proactive messages (keeps memory) |
 | "调整消息时间" / "change schedule" | Change when messages arrive |
+| "导出数据" / "export data" | See exactly what ClawMate stores about you |
+| "删除数据" / "delete data" | Erase all data and cron jobs |
 
 ## Architecture
 
@@ -130,8 +133,9 @@ skills/clawmate/
 │   ├── cheerful.md             # 活泼型 — pure sunshine
 │   └── intellectual.md         # 知性型 — depth and insight
 └── memory/
-    ├── user_profile.json       # Who you are
-    └── shared_memories.json    # Who we are
+    ├── user_profile.json       # Who you are + delivery & scheduling config
+    ├── shared_memories.json    # Who we are
+    └── message_pool.json       # Pre-composed daily messages
 ```
 
 ## Create Your Own Persona
