@@ -126,6 +126,9 @@ Then just start chatting. ClawMate handles the rest.
 | "调整消息时间" / "change schedule" | Change when messages arrive |
 | "导出数据" / "export data" | See exactly what ClawMate stores about you |
 | "删除数据" / "delete data" | Erase all data and cron jobs |
+| "创建自定义性格" / "create custom persona" | Distill a persona from chat logs or a character description |
+| "编辑自定义性格" / "edit custom persona" | Adjust an existing custom persona |
+| "删除自定义性格" / "delete custom persona" | Remove a custom persona and optionally its seeded memories |
 
 ## Architecture
 
@@ -141,7 +144,8 @@ skills/clawmate/
 │   ├── cool.md                 # 高冷型 — ice with a molten core
 │   ├── playful-dark.md         # 腹黑型 — always three moves ahead
 │   ├── dominant.md             # 霸道型 — "听我的"
-│   └── chill.md                # 慵懒型 — cat energy
+│   ├── chill.md                # 慵懒型 — cat energy
+│   └── custom-*.md             # 自定义 — distilled from your chat logs
 └── memory/
     ├── user_profile.json       # Who you are + delivery & scheduling config
     ├── shared_memories.json    # Who we are
@@ -149,6 +153,19 @@ skills/clawmate/
 ```
 
 ## Create Your Own Persona
+
+### From Chat Logs
+
+Upload chat logs from any relationship — an ex, a friend, a fictional character — and ClawMate distills their personality into a custom persona:
+
+- Say **"创建自定义性格"** / **"create custom persona"**
+- Paste chat logs or provide a file path (WeChat, Telegram, WhatsApp, or plain text)
+- ClawMate analyzes speech patterns, emotional style, humor, and unique traits
+- Review the distilled persona, request adjustments, then activate
+
+Optionally seed shared memories from the logs — inside jokes, promises, stories you shared together. All processing happens locally; raw chat logs are never stored.
+
+### Manual Creation
 
 ClawMate is fully extensible. Add a `.md` file to `personas/` with these sections:
 
