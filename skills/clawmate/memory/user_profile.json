@@ -30,7 +30,6 @@
   "lastInteraction": "",
   "totalConversations": 0,
   "conflictCooldown": false,
-  "customPersonas": [],
 
   "personaGrowth": {
     "gentle": { "interactionCount": 0, "growthLevel": 0.0, "lastActiveDate": "" },
