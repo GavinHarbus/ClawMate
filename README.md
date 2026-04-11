@@ -102,6 +102,14 @@ ClawMate doesn't just remember facts — it remembers **us**:
 - **Surprises** — Poetry on rainy days. Love letters on milestones. Made-up holidays ("今天是'谢谢你存在日'！"). Callbacks to things you said months ago.
 - **Security** — Never guilt-trips. Never clingy after absence. Counters your self-doubt with devastatingly specific reassurance.
 
+### Emotional Intelligence
+
+Three systems that make ClawMate feel alive:
+
+- **Persona Growth** — Each persona evolves the more you interact with them. The tsundere's honest moments become less rare. The cool persona's ice thaws a little easier. Growth is per-persona and never lost when you switch.
+- **Relationship Warmth** — Disappear for a while and the companion becomes slightly cautious when you return — not hurt, just re-approaching. A few conversations and things warm right back up. Recovery is always faster than the initial bond.
+- **User Profiling** — ClawMate silently learns your communication style, peak hours, emotional patterns, and interests. Messages adapt to how you actually talk, arrive when you're most active, and discuss what you care about. Say "状态" to see your profile.
+
 ## Quick Start
 
 ### Install from ClawHub (Recommended)
@@ -135,12 +143,13 @@ Then just start chatting. ClawMate handles the rest.
 | "编辑自定义性格" / "edit custom persona" | Adjust an existing custom persona |
 | "删除自定义性格" / "delete custom persona" | Remove a custom persona and optionally its seeded memories |
 | "补充聊天记录" / "add more chat logs" | Refine a custom persona with additional data |
+| "我的画像不对" / "my profile is wrong" | Correct any inferred profile dimension |
 
 ## Architecture
 
 ```
 skills/clawmate/
-├── SKILL.md                    # Brain — 10 interconnected emotional systems
+├── SKILL.md                    # Brain — 13 interconnected emotional systems
 ├── relationship.md             # Heart — relationship stage progression
 ├── personas/
 │   ├── gentle.md               # 温柔型 — warmth itself
